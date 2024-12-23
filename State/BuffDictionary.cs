@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ExileCore2.PoEMemory.Components;
@@ -12,11 +12,13 @@ public class BuffDictionary
 {
     private readonly SkillDictionary _playerSkills;
     private readonly Dictionary<string, Buff> _source;
+    private readonly List<Buff> _rawBuffs;
 
     public BuffDictionary(List<Buff> source, SkillDictionary playerSkills)
     {
         _playerSkills = playerSkills;
-        _source = source.Where(x => x.Name != null).DistinctBy(x => x.Name).ToDictionary(x => x.Name);
+        _rawBuffs = source.Where(x => x.Name != null).ToList();
+        _source = _rawBuffs.DistinctBy(x => x.Name).ToDictionary(x => x.Name);
     }
 
     [Api]
@@ -42,6 +44,9 @@ public class BuffDictionary
     {
         return _source.ContainsKey(id);
     }
+
+    [Api]
+    public List<Buff> GetRawBuffs() => _rawBuffs;
 
     [JsonProperty]
     private Dictionary<string, StatusEffect> AllBuffs => _source.Keys.ToDictionary(x => x, x => this[x]);
