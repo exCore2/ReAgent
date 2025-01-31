@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -31,39 +31,31 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
     public Dictionary<string, List<string>> CustomAilments { get; set; } = new Dictionary<string, List<string>>();
     public static int ProcessID { get; private set; }
 
-public override bool Initialise()
-{
-    ProcessID = GameController.Window.Process.Id;
-
-    // Any other initializations
-    var stringData = File.ReadAllText(Path.Join(DirectoryFullName, "CustomAilments.json"));
-    CustomAilments = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(stringData);
-
-    Settings.DumpState.OnPressed = () =>
+    public override bool Initialise()
     {
-        ImGui.SetClipboardText(JsonConvert.SerializeObject(new RuleState(this, _internalState), new JsonSerializerSettings
+        ProcessID = GameController.Window.Process.Id;
+
+        var stringData = File.ReadAllText(Path.Join(DirectoryFullName, "CustomAilments.json"));
+        CustomAilments = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(stringData);
+        Settings.DumpState.OnPressed = () => { ImGui.SetClipboardText(JsonConvert.SerializeObject(new RuleState(this, _internalState), new JsonSerializerSettings
         {
             Error = (sender, args) =>
             {
                 DebugWindow.LogError($"Error during state dump {args.ErrorContext.Error}");
                 args.ErrorContext.Handled = true;
             }
-        }));
-    };
-
-    Settings.ImageDirectory.OnValueChanged = () =>
-    {
-        foreach (var loadedTexture in _loadedTextures)
+        })); };
+        Settings.ImageDirectory.OnValueChanged = () =>
         {
-            Graphics.DisposeTexture(loadedTexture);
-        }
+            foreach (var loadedTexture in _loadedTextures)
+            {
+                Graphics.DisposeTexture(loadedTexture);
+            }
 
-        _loadedTextures.Clear();
-    };
-
-    return base.Initialise();
-}
-
+            _loadedTextures.Clear();
+        };
+        return base.Initialise();
+    }
 
     private string _profileImportInput = null;
     private Task<(string text, bool edited)> _profileImportObject = null;
@@ -303,9 +295,6 @@ public override bool Initialise()
             var show = Settings.ShowDebugWindow.Value;
             ImGui.Begin("Debug Mode Window", ref show);
             Settings.ShowDebugWindow.Value = show;
-
-            var activePlugins = GameController.PluginBridge.GetMethod<Func<List<string>>>("GetActivePlugins")?.Invoke();
-
             ImGui.TextWrapped($"State: {state}");
             if (ImGui.Button("Clear History"))
             {
@@ -317,17 +306,7 @@ public override bool Initialise()
             {
                 ImGui.TextUnformatted($"{dateTime:HH:mm:ss.fff}: {@event}");
             }
-            if (activePlugins != null && activePlugins.Any())
-            {
-                foreach (var plugin in activePlugins)
-                {
-                    ImGui.TextColored(Color.Green.ToImguiVec4(), $" - {plugin}");
-                }
-            }
-            else
-            {
-                ImGui.TextColored(Color.Red.ToImguiVec4(), "No active plugins.");
-            }
+
             ImGui.EndChild();
             ImGui.End();
         }
@@ -449,11 +428,6 @@ public override bool Initialise()
 
         _pendingSideEffects = applicationResults.Where(x => x.ApplicationResult == SideEffectApplicationResult.UnableToApply).Select(x => x.x).ToList();
     }
-    private bool IsPluginActive(string pluginName)
-    {
-        var method = GameController.PluginBridge.GetMethod<Func<bool>>($"{pluginName}.IsActive");
-        return method?.Invoke() ?? false;
-    }
 
 
     private bool ShouldExecute(out string state)
@@ -464,20 +438,7 @@ public override bool Initialise()
             return false;
         }
 
-        // Check if any specific plugin is active
-        if (IsPluginActive("SoulOffering"))
-        {
-            state = "Paused by SoulOffering";
-            return false;
-        }
-
-        if (IsPluginActive("ReAgent"))
-        {
-            state = "Paused by ReAgent";
-            return false;
-        }
-
-        if (!Settings.PluginSettings.EnableInEscapeState &&
+        if (!Settings.PluginSettings.EnableInEscapeState && 
             GameController.Game.IsEscapeState)
         {
             state = "Escape state is active";
@@ -521,5 +482,4 @@ public override bool Initialise()
         state = "Ready";
         return true;
     }
-
 }
