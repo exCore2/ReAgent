@@ -31,38 +31,38 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
     public Dictionary<string, List<string>> CustomAilments { get; set; } = new Dictionary<string, List<string>>();
     public static int ProcessID { get; private set; }
 
-    public override bool Initialise()
+public override bool Initialise()
+{
+    ProcessID = GameController.Window.Process.Id;
+
+    // Any other initializations
+    var stringData = File.ReadAllText(Path.Join(DirectoryFullName, "CustomAilments.json"));
+    CustomAilments = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(stringData);
+
+    Settings.DumpState.OnPressed = () =>
     {
-        ProcessID = GameController.Window.Process.Id;
-
-        // Any other initializations
-        var stringData = File.ReadAllText(Path.Join(DirectoryFullName, "CustomAilments.json"));
-        CustomAilments = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(stringData);
-
-        Settings.DumpState.OnPressed = () =>
+        ImGui.SetClipboardText(JsonConvert.SerializeObject(new RuleState(this, _internalState), new JsonSerializerSettings
         {
-            ImGui.SetClipboardText(JsonConvert.SerializeObject(new RuleState(this, _internalState), new JsonSerializerSettings
+            Error = (sender, args) =>
             {
-                Error = (sender, args) =>
-                {
-                    DebugWindow.LogError($"Error during state dump {args.ErrorContext.Error}");
-                    args.ErrorContext.Handled = true;
-                }
-            }));
-        };
-
-        Settings.ImageDirectory.OnValueChanged = () =>
-        {
-            foreach (var loadedTexture in _loadedTextures)
-            {
-                Graphics.DisposeTexture(loadedTexture);
+                DebugWindow.LogError($"Error during state dump {args.ErrorContext.Error}");
+                args.ErrorContext.Handled = true;
             }
+        }));
+    };
 
-            _loadedTextures.Clear();
-        };
+    Settings.ImageDirectory.OnValueChanged = () =>
+    {
+        foreach (var loadedTexture in _loadedTextures)
+        {
+            Graphics.DisposeTexture(loadedTexture);
+        }
 
-        return base.Initialise();
-    }
+        _loadedTextures.Clear();
+    };
+
+    return base.Initialise();
+}
 
 
     private string _profileImportInput = null;
@@ -464,7 +464,12 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
             return false;
         }
 
-        // Check if any specific plugin is active
+        if (IsPluginActive("AutoBlink"))
+        {
+            state = "Paused by AutoBlink";
+            return false;
+        }
+
         if (IsPluginActive("SoulOffering"))
         {
             state = "Paused by SoulOffering";
