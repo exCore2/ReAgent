@@ -4502,6 +4502,15 @@ references:
   fullName.vb: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.New(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
   nameWithType: ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect(HotkeyNodeV2.HotkeyNodeValue)
   nameWithType.vb: ReleaseKeyHoldSideEffect.New(HotkeyNodeV2.HotkeyNodeValue)
+- uid: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor(System.Windows.Forms.Keys)
+  name: ReleaseKeyHoldSideEffect(Keys)
+  href: api/ReAgent.SideEffects.ReleaseKeyHoldSideEffect.html#ReAgent_SideEffects_ReleaseKeyHoldSideEffect__ctor_System_Windows_Forms_Keys_
+  commentId: M:ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor(System.Windows.Forms.Keys)
+  name.vb: New(Keys)
+  fullName: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect(System.Windows.Forms.Keys)
+  fullName.vb: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.New(System.Windows.Forms.Keys)
+  nameWithType: ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect(Keys)
+  nameWithType.vb: ReleaseKeyHoldSideEffect.New(Keys)
 - uid: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor*
   name: ReleaseKeyHoldSideEffect
   href: api/ReAgent.SideEffects.ReleaseKeyHoldSideEffect.html#ReAgent_SideEffects_ReleaseKeyHoldSideEffect__ctor_
@@ -4677,6 +4686,15 @@ references:
   fullName.vb: ReAgent.SideEffects.StartKeyHoldSideEffect.New(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
   nameWithType: StartKeyHoldSideEffect.StartKeyHoldSideEffect(HotkeyNodeV2.HotkeyNodeValue)
   nameWithType.vb: StartKeyHoldSideEffect.New(HotkeyNodeV2.HotkeyNodeValue)
+- uid: ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor(System.Windows.Forms.Keys)
+  name: StartKeyHoldSideEffect(Keys)
+  href: api/ReAgent.SideEffects.StartKeyHoldSideEffect.html#ReAgent_SideEffects_StartKeyHoldSideEffect__ctor_System_Windows_Forms_Keys_
+  commentId: M:ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor(System.Windows.Forms.Keys)
+  name.vb: New(Keys)
+  fullName: ReAgent.SideEffects.StartKeyHoldSideEffect.StartKeyHoldSideEffect(System.Windows.Forms.Keys)
+  fullName.vb: ReAgent.SideEffects.StartKeyHoldSideEffect.New(System.Windows.Forms.Keys)
+  nameWithType: StartKeyHoldSideEffect.StartKeyHoldSideEffect(Keys)
+  nameWithType.vb: StartKeyHoldSideEffect.New(Keys)
 - uid: ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor*
   name: StartKeyHoldSideEffect
   href: api/ReAgent.SideEffects.StartKeyHoldSideEffect.html#ReAgent_SideEffects_StartKeyHoldSideEffect__ctor_
