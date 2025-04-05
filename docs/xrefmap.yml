@@ -4393,84 +4393,350 @@ references:
   commentId: T:ReAgent.SideEffects.DisplayGraphicSideEffect
   fullName: ReAgent.SideEffects.DisplayGraphicSideEffect
   nameWithType: DisplayGraphicSideEffect
+- uid: ReAgent.SideEffects.DisplayGraphicSideEffect.#ctor(System.String,System.Numerics.Vector2,System.Numerics.Vector2,System.String)
+  name: DisplayGraphicSideEffect(string, Vector2, Vector2, string)
+  href: api/ReAgent.SideEffects.DisplayGraphicSideEffect.html#ReAgent_SideEffects_DisplayGraphicSideEffect__ctor_System_String_System_Numerics_Vector2_System_Numerics_Vector2_System_String_
+  commentId: M:ReAgent.SideEffects.DisplayGraphicSideEffect.#ctor(System.String,System.Numerics.Vector2,System.Numerics.Vector2,System.String)
+  name.vb: New(String, Vector2, Vector2, String)
+  fullName: ReAgent.SideEffects.DisplayGraphicSideEffect.DisplayGraphicSideEffect(string, System.Numerics.Vector2, System.Numerics.Vector2, string)
+  fullName.vb: ReAgent.SideEffects.DisplayGraphicSideEffect.New(String, System.Numerics.Vector2, System.Numerics.Vector2, String)
+  nameWithType: DisplayGraphicSideEffect.DisplayGraphicSideEffect(string, Vector2, Vector2, string)
+  nameWithType.vb: DisplayGraphicSideEffect.New(String, Vector2, Vector2, String)
+- uid: ReAgent.SideEffects.DisplayGraphicSideEffect.#ctor*
+  name: DisplayGraphicSideEffect
+  href: api/ReAgent.SideEffects.DisplayGraphicSideEffect.html#ReAgent_SideEffects_DisplayGraphicSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.DisplayGraphicSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.DisplayGraphicSideEffect.DisplayGraphicSideEffect
+  fullName.vb: ReAgent.SideEffects.DisplayGraphicSideEffect.New
+  nameWithType: DisplayGraphicSideEffect.DisplayGraphicSideEffect
+  nameWithType.vb: DisplayGraphicSideEffect.New
 - uid: ReAgent.SideEffects.DisplayTextSideEffect
   name: DisplayTextSideEffect
   href: api/ReAgent.SideEffects.DisplayTextSideEffect.html
   commentId: T:ReAgent.SideEffects.DisplayTextSideEffect
   fullName: ReAgent.SideEffects.DisplayTextSideEffect
   nameWithType: DisplayTextSideEffect
+- uid: ReAgent.SideEffects.DisplayTextSideEffect.#ctor(System.String,System.Numerics.Vector2,System.String)
+  name: DisplayTextSideEffect(string, Vector2, string)
+  href: api/ReAgent.SideEffects.DisplayTextSideEffect.html#ReAgent_SideEffects_DisplayTextSideEffect__ctor_System_String_System_Numerics_Vector2_System_String_
+  commentId: M:ReAgent.SideEffects.DisplayTextSideEffect.#ctor(System.String,System.Numerics.Vector2,System.String)
+  name.vb: New(String, Vector2, String)
+  fullName: ReAgent.SideEffects.DisplayTextSideEffect.DisplayTextSideEffect(string, System.Numerics.Vector2, string)
+  fullName.vb: ReAgent.SideEffects.DisplayTextSideEffect.New(String, System.Numerics.Vector2, String)
+  nameWithType: DisplayTextSideEffect.DisplayTextSideEffect(string, Vector2, string)
+  nameWithType.vb: DisplayTextSideEffect.New(String, Vector2, String)
+- uid: ReAgent.SideEffects.DisplayTextSideEffect.#ctor*
+  name: DisplayTextSideEffect
+  href: api/ReAgent.SideEffects.DisplayTextSideEffect.html#ReAgent_SideEffects_DisplayTextSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.DisplayTextSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.DisplayTextSideEffect.DisplayTextSideEffect
+  fullName.vb: ReAgent.SideEffects.DisplayTextSideEffect.New
+  nameWithType: DisplayTextSideEffect.DisplayTextSideEffect
+  nameWithType.vb: DisplayTextSideEffect.New
 - uid: ReAgent.SideEffects.PressKeySideEffect
   name: PressKeySideEffect
   href: api/ReAgent.SideEffects.PressKeySideEffect.html
   commentId: T:ReAgent.SideEffects.PressKeySideEffect
   fullName: ReAgent.SideEffects.PressKeySideEffect
   nameWithType: PressKeySideEffect
+- uid: ReAgent.SideEffects.PressKeySideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name: PressKeySideEffect(HotkeyNodeValue)
+  href: api/ReAgent.SideEffects.PressKeySideEffect.html#ReAgent_SideEffects_PressKeySideEffect__ctor_ExileCore2_Shared_Nodes_HotkeyNodeV2_HotkeyNodeValue_
+  commentId: M:ReAgent.SideEffects.PressKeySideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name.vb: New(HotkeyNodeValue)
+  fullName: ReAgent.SideEffects.PressKeySideEffect.PressKeySideEffect(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  fullName.vb: ReAgent.SideEffects.PressKeySideEffect.New(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType: PressKeySideEffect.PressKeySideEffect(HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType.vb: PressKeySideEffect.New(HotkeyNodeV2.HotkeyNodeValue)
+- uid: ReAgent.SideEffects.PressKeySideEffect.#ctor*
+  name: PressKeySideEffect
+  href: api/ReAgent.SideEffects.PressKeySideEffect.html#ReAgent_SideEffects_PressKeySideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.PressKeySideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.PressKeySideEffect.PressKeySideEffect
+  fullName.vb: ReAgent.SideEffects.PressKeySideEffect.New
+  nameWithType: PressKeySideEffect.PressKeySideEffect
+  nameWithType.vb: PressKeySideEffect.New
 - uid: ReAgent.SideEffects.ProgressBarSideEffect
   name: ProgressBarSideEffect
   href: api/ReAgent.SideEffects.ProgressBarSideEffect.html
   commentId: T:ReAgent.SideEffects.ProgressBarSideEffect
   fullName: ReAgent.SideEffects.ProgressBarSideEffect
   nameWithType: ProgressBarSideEffect
+- uid: ReAgent.SideEffects.ProgressBarSideEffect.#ctor(System.String,System.Numerics.Vector2,System.Numerics.Vector2,System.Single,System.String,System.String,System.String)
+  name: ProgressBarSideEffect(string, Vector2, Vector2, float, string, string, string)
+  href: api/ReAgent.SideEffects.ProgressBarSideEffect.html#ReAgent_SideEffects_ProgressBarSideEffect__ctor_System_String_System_Numerics_Vector2_System_Numerics_Vector2_System_Single_System_String_System_String_System_String_
+  commentId: M:ReAgent.SideEffects.ProgressBarSideEffect.#ctor(System.String,System.Numerics.Vector2,System.Numerics.Vector2,System.Single,System.String,System.String,System.String)
+  name.vb: New(String, Vector2, Vector2, Single, String, String, String)
+  fullName: ReAgent.SideEffects.ProgressBarSideEffect.ProgressBarSideEffect(string, System.Numerics.Vector2, System.Numerics.Vector2, float, string, string, string)
+  fullName.vb: ReAgent.SideEffects.ProgressBarSideEffect.New(String, System.Numerics.Vector2, System.Numerics.Vector2, Single, String, String, String)
+  nameWithType: ProgressBarSideEffect.ProgressBarSideEffect(string, Vector2, Vector2, float, string, string, string)
+  nameWithType.vb: ProgressBarSideEffect.New(String, Vector2, Vector2, Single, String, String, String)
+- uid: ReAgent.SideEffects.ProgressBarSideEffect.#ctor*
+  name: ProgressBarSideEffect
+  href: api/ReAgent.SideEffects.ProgressBarSideEffect.html#ReAgent_SideEffects_ProgressBarSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.ProgressBarSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.ProgressBarSideEffect.ProgressBarSideEffect
+  fullName.vb: ReAgent.SideEffects.ProgressBarSideEffect.New
+  nameWithType: ProgressBarSideEffect.ProgressBarSideEffect
+  nameWithType.vb: ProgressBarSideEffect.New
 - uid: ReAgent.SideEffects.ReleaseKeyHoldSideEffect
   name: ReleaseKeyHoldSideEffect
   href: api/ReAgent.SideEffects.ReleaseKeyHoldSideEffect.html
   commentId: T:ReAgent.SideEffects.ReleaseKeyHoldSideEffect
   fullName: ReAgent.SideEffects.ReleaseKeyHoldSideEffect
   nameWithType: ReleaseKeyHoldSideEffect
+- uid: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name: ReleaseKeyHoldSideEffect(HotkeyNodeValue)
+  href: api/ReAgent.SideEffects.ReleaseKeyHoldSideEffect.html#ReAgent_SideEffects_ReleaseKeyHoldSideEffect__ctor_ExileCore2_Shared_Nodes_HotkeyNodeV2_HotkeyNodeValue_
+  commentId: M:ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name.vb: New(HotkeyNodeValue)
+  fullName: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  fullName.vb: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.New(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType: ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect(HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType.vb: ReleaseKeyHoldSideEffect.New(HotkeyNodeV2.HotkeyNodeValue)
+- uid: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor*
+  name: ReleaseKeyHoldSideEffect
+  href: api/ReAgent.SideEffects.ReleaseKeyHoldSideEffect.html#ReAgent_SideEffects_ReleaseKeyHoldSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.ReleaseKeyHoldSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect
+  fullName.vb: ReAgent.SideEffects.ReleaseKeyHoldSideEffect.New
+  nameWithType: ReleaseKeyHoldSideEffect.ReleaseKeyHoldSideEffect
+  nameWithType.vb: ReleaseKeyHoldSideEffect.New
 - uid: ReAgent.SideEffects.ResetFlagSideEffect
   name: ResetFlagSideEffect
   href: api/ReAgent.SideEffects.ResetFlagSideEffect.html
   commentId: T:ReAgent.SideEffects.ResetFlagSideEffect
   fullName: ReAgent.SideEffects.ResetFlagSideEffect
   nameWithType: ResetFlagSideEffect
+- uid: ReAgent.SideEffects.ResetFlagSideEffect.#ctor(System.String)
+  name: ResetFlagSideEffect(string)
+  href: api/ReAgent.SideEffects.ResetFlagSideEffect.html#ReAgent_SideEffects_ResetFlagSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.ResetFlagSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.ResetFlagSideEffect.ResetFlagSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.ResetFlagSideEffect.New(String)
+  nameWithType: ResetFlagSideEffect.ResetFlagSideEffect(string)
+  nameWithType.vb: ResetFlagSideEffect.New(String)
+- uid: ReAgent.SideEffects.ResetFlagSideEffect.#ctor*
+  name: ResetFlagSideEffect
+  href: api/ReAgent.SideEffects.ResetFlagSideEffect.html#ReAgent_SideEffects_ResetFlagSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.ResetFlagSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.ResetFlagSideEffect.ResetFlagSideEffect
+  fullName.vb: ReAgent.SideEffects.ResetFlagSideEffect.New
+  nameWithType: ResetFlagSideEffect.ResetFlagSideEffect
+  nameWithType.vb: ResetFlagSideEffect.New
 - uid: ReAgent.SideEffects.ResetNumberSideEffect
   name: ResetNumberSideEffect
   href: api/ReAgent.SideEffects.ResetNumberSideEffect.html
   commentId: T:ReAgent.SideEffects.ResetNumberSideEffect
   fullName: ReAgent.SideEffects.ResetNumberSideEffect
   nameWithType: ResetNumberSideEffect
+- uid: ReAgent.SideEffects.ResetNumberSideEffect.#ctor(System.String)
+  name: ResetNumberSideEffect(string)
+  href: api/ReAgent.SideEffects.ResetNumberSideEffect.html#ReAgent_SideEffects_ResetNumberSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.ResetNumberSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.ResetNumberSideEffect.ResetNumberSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.ResetNumberSideEffect.New(String)
+  nameWithType: ResetNumberSideEffect.ResetNumberSideEffect(string)
+  nameWithType.vb: ResetNumberSideEffect.New(String)
+- uid: ReAgent.SideEffects.ResetNumberSideEffect.#ctor*
+  name: ResetNumberSideEffect
+  href: api/ReAgent.SideEffects.ResetNumberSideEffect.html#ReAgent_SideEffects_ResetNumberSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.ResetNumberSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.ResetNumberSideEffect.ResetNumberSideEffect
+  fullName.vb: ReAgent.SideEffects.ResetNumberSideEffect.New
+  nameWithType: ResetNumberSideEffect.ResetNumberSideEffect
+  nameWithType.vb: ResetNumberSideEffect.New
 - uid: ReAgent.SideEffects.ResetTimerSideEffect
   name: ResetTimerSideEffect
   href: api/ReAgent.SideEffects.ResetTimerSideEffect.html
   commentId: T:ReAgent.SideEffects.ResetTimerSideEffect
   fullName: ReAgent.SideEffects.ResetTimerSideEffect
   nameWithType: ResetTimerSideEffect
+- uid: ReAgent.SideEffects.ResetTimerSideEffect.#ctor(System.String)
+  name: ResetTimerSideEffect(string)
+  href: api/ReAgent.SideEffects.ResetTimerSideEffect.html#ReAgent_SideEffects_ResetTimerSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.ResetTimerSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.ResetTimerSideEffect.ResetTimerSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.ResetTimerSideEffect.New(String)
+  nameWithType: ResetTimerSideEffect.ResetTimerSideEffect(string)
+  nameWithType.vb: ResetTimerSideEffect.New(String)
+- uid: ReAgent.SideEffects.ResetTimerSideEffect.#ctor*
+  name: ResetTimerSideEffect
+  href: api/ReAgent.SideEffects.ResetTimerSideEffect.html#ReAgent_SideEffects_ResetTimerSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.ResetTimerSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.ResetTimerSideEffect.ResetTimerSideEffect
+  fullName.vb: ReAgent.SideEffects.ResetTimerSideEffect.New
+  nameWithType: ResetTimerSideEffect.ResetTimerSideEffect
+  nameWithType.vb: ResetTimerSideEffect.New
 - uid: ReAgent.SideEffects.RestartTimerSideEffect
   name: RestartTimerSideEffect
   href: api/ReAgent.SideEffects.RestartTimerSideEffect.html
   commentId: T:ReAgent.SideEffects.RestartTimerSideEffect
   fullName: ReAgent.SideEffects.RestartTimerSideEffect
   nameWithType: RestartTimerSideEffect
+- uid: ReAgent.SideEffects.RestartTimerSideEffect.#ctor(System.String)
+  name: RestartTimerSideEffect(string)
+  href: api/ReAgent.SideEffects.RestartTimerSideEffect.html#ReAgent_SideEffects_RestartTimerSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.RestartTimerSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.RestartTimerSideEffect.RestartTimerSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.RestartTimerSideEffect.New(String)
+  nameWithType: RestartTimerSideEffect.RestartTimerSideEffect(string)
+  nameWithType.vb: RestartTimerSideEffect.New(String)
+- uid: ReAgent.SideEffects.RestartTimerSideEffect.#ctor*
+  name: RestartTimerSideEffect
+  href: api/ReAgent.SideEffects.RestartTimerSideEffect.html#ReAgent_SideEffects_RestartTimerSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.RestartTimerSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.RestartTimerSideEffect.RestartTimerSideEffect
+  fullName.vb: ReAgent.SideEffects.RestartTimerSideEffect.New
+  nameWithType: RestartTimerSideEffect.RestartTimerSideEffect
+  nameWithType.vb: RestartTimerSideEffect.New
 - uid: ReAgent.SideEffects.SetFlagSideEffect
   name: SetFlagSideEffect
   href: api/ReAgent.SideEffects.SetFlagSideEffect.html
   commentId: T:ReAgent.SideEffects.SetFlagSideEffect
   fullName: ReAgent.SideEffects.SetFlagSideEffect
   nameWithType: SetFlagSideEffect
+- uid: ReAgent.SideEffects.SetFlagSideEffect.#ctor(System.String)
+  name: SetFlagSideEffect(string)
+  href: api/ReAgent.SideEffects.SetFlagSideEffect.html#ReAgent_SideEffects_SetFlagSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.SetFlagSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.SetFlagSideEffect.SetFlagSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.SetFlagSideEffect.New(String)
+  nameWithType: SetFlagSideEffect.SetFlagSideEffect(string)
+  nameWithType.vb: SetFlagSideEffect.New(String)
+- uid: ReAgent.SideEffects.SetFlagSideEffect.#ctor*
+  name: SetFlagSideEffect
+  href: api/ReAgent.SideEffects.SetFlagSideEffect.html#ReAgent_SideEffects_SetFlagSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.SetFlagSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.SetFlagSideEffect.SetFlagSideEffect
+  fullName.vb: ReAgent.SideEffects.SetFlagSideEffect.New
+  nameWithType: SetFlagSideEffect.SetFlagSideEffect
+  nameWithType.vb: SetFlagSideEffect.New
 - uid: ReAgent.SideEffects.SetNumberSideEffect
   name: SetNumberSideEffect
   href: api/ReAgent.SideEffects.SetNumberSideEffect.html
   commentId: T:ReAgent.SideEffects.SetNumberSideEffect
   fullName: ReAgent.SideEffects.SetNumberSideEffect
   nameWithType: SetNumberSideEffect
+- uid: ReAgent.SideEffects.SetNumberSideEffect.#ctor(System.String,System.Single)
+  name: SetNumberSideEffect(string, float)
+  href: api/ReAgent.SideEffects.SetNumberSideEffect.html#ReAgent_SideEffects_SetNumberSideEffect__ctor_System_String_System_Single_
+  commentId: M:ReAgent.SideEffects.SetNumberSideEffect.#ctor(System.String,System.Single)
+  name.vb: New(String, Single)
+  fullName: ReAgent.SideEffects.SetNumberSideEffect.SetNumberSideEffect(string, float)
+  fullName.vb: ReAgent.SideEffects.SetNumberSideEffect.New(String, Single)
+  nameWithType: SetNumberSideEffect.SetNumberSideEffect(string, float)
+  nameWithType.vb: SetNumberSideEffect.New(String, Single)
+- uid: ReAgent.SideEffects.SetNumberSideEffect.#ctor*
+  name: SetNumberSideEffect
+  href: api/ReAgent.SideEffects.SetNumberSideEffect.html#ReAgent_SideEffects_SetNumberSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.SetNumberSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.SetNumberSideEffect.SetNumberSideEffect
+  fullName.vb: ReAgent.SideEffects.SetNumberSideEffect.New
+  nameWithType: SetNumberSideEffect.SetNumberSideEffect
+  nameWithType.vb: SetNumberSideEffect.New
 - uid: ReAgent.SideEffects.StartKeyHoldSideEffect
   name: StartKeyHoldSideEffect
   href: api/ReAgent.SideEffects.StartKeyHoldSideEffect.html
   commentId: T:ReAgent.SideEffects.StartKeyHoldSideEffect
   fullName: ReAgent.SideEffects.StartKeyHoldSideEffect
   nameWithType: StartKeyHoldSideEffect
+- uid: ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name: StartKeyHoldSideEffect(HotkeyNodeValue)
+  href: api/ReAgent.SideEffects.StartKeyHoldSideEffect.html#ReAgent_SideEffects_StartKeyHoldSideEffect__ctor_ExileCore2_Shared_Nodes_HotkeyNodeV2_HotkeyNodeValue_
+  commentId: M:ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  name.vb: New(HotkeyNodeValue)
+  fullName: ReAgent.SideEffects.StartKeyHoldSideEffect.StartKeyHoldSideEffect(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  fullName.vb: ReAgent.SideEffects.StartKeyHoldSideEffect.New(ExileCore2.Shared.Nodes.HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType: StartKeyHoldSideEffect.StartKeyHoldSideEffect(HotkeyNodeV2.HotkeyNodeValue)
+  nameWithType.vb: StartKeyHoldSideEffect.New(HotkeyNodeV2.HotkeyNodeValue)
+- uid: ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor*
+  name: StartKeyHoldSideEffect
+  href: api/ReAgent.SideEffects.StartKeyHoldSideEffect.html#ReAgent_SideEffects_StartKeyHoldSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.StartKeyHoldSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.StartKeyHoldSideEffect.StartKeyHoldSideEffect
+  fullName.vb: ReAgent.SideEffects.StartKeyHoldSideEffect.New
+  nameWithType: StartKeyHoldSideEffect.StartKeyHoldSideEffect
+  nameWithType.vb: StartKeyHoldSideEffect.New
 - uid: ReAgent.SideEffects.StartTimerSideEffect
   name: StartTimerSideEffect
   href: api/ReAgent.SideEffects.StartTimerSideEffect.html
   commentId: T:ReAgent.SideEffects.StartTimerSideEffect
   fullName: ReAgent.SideEffects.StartTimerSideEffect
   nameWithType: StartTimerSideEffect
+- uid: ReAgent.SideEffects.StartTimerSideEffect.#ctor(System.String)
+  name: StartTimerSideEffect(string)
+  href: api/ReAgent.SideEffects.StartTimerSideEffect.html#ReAgent_SideEffects_StartTimerSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.StartTimerSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.StartTimerSideEffect.StartTimerSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.StartTimerSideEffect.New(String)
+  nameWithType: StartTimerSideEffect.StartTimerSideEffect(string)
+  nameWithType.vb: StartTimerSideEffect.New(String)
+- uid: ReAgent.SideEffects.StartTimerSideEffect.#ctor*
+  name: StartTimerSideEffect
+  href: api/ReAgent.SideEffects.StartTimerSideEffect.html#ReAgent_SideEffects_StartTimerSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.StartTimerSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.StartTimerSideEffect.StartTimerSideEffect
+  fullName.vb: ReAgent.SideEffects.StartTimerSideEffect.New
+  nameWithType: StartTimerSideEffect.StartTimerSideEffect
+  nameWithType.vb: StartTimerSideEffect.New
 - uid: ReAgent.SideEffects.StopTimerSideEffect
   name: StopTimerSideEffect
   href: api/ReAgent.SideEffects.StopTimerSideEffect.html
   commentId: T:ReAgent.SideEffects.StopTimerSideEffect
   fullName: ReAgent.SideEffects.StopTimerSideEffect
   nameWithType: StopTimerSideEffect
+- uid: ReAgent.SideEffects.StopTimerSideEffect.#ctor(System.String)
+  name: StopTimerSideEffect(string)
+  href: api/ReAgent.SideEffects.StopTimerSideEffect.html#ReAgent_SideEffects_StopTimerSideEffect__ctor_System_String_
+  commentId: M:ReAgent.SideEffects.StopTimerSideEffect.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ReAgent.SideEffects.StopTimerSideEffect.StopTimerSideEffect(string)
+  fullName.vb: ReAgent.SideEffects.StopTimerSideEffect.New(String)
+  nameWithType: StopTimerSideEffect.StopTimerSideEffect(string)
+  nameWithType.vb: StopTimerSideEffect.New(String)
+- uid: ReAgent.SideEffects.StopTimerSideEffect.#ctor*
+  name: StopTimerSideEffect
+  href: api/ReAgent.SideEffects.StopTimerSideEffect.html#ReAgent_SideEffects_StopTimerSideEffect__ctor_
+  commentId: Overload:ReAgent.SideEffects.StopTimerSideEffect.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ReAgent.SideEffects.StopTimerSideEffect.StopTimerSideEffect
+  fullName.vb: ReAgent.SideEffects.StopTimerSideEffect.New
+  nameWithType: StopTimerSideEffect.StopTimerSideEffect
+  nameWithType.vb: StopTimerSideEffect.New
 - uid: ReAgent.State
   name: ReAgent.State
   href: api/ReAgent.State.html
