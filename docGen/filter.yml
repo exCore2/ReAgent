@@ -1,9 +1,9 @@
 apiRules:
 - include:
-    uidRegex: ^ExileCore.Shared.Enums.AnimationE$
+    uidRegex: ^ExileCore2.Shared.Enums.AnimationE$
 - include:
     type: Member
-    uidRegex: ^ExileCore.Shared.Enums.AnimationE
+    uidRegex: ^ExileCore2.Shared.Enums.AnimationE
 - include:
     hasAttribute:
         uid: ReAgent.ApiAttribute

@@ -9,8 +9,8 @@
           "src": "../"
         },
         {
-          "files": "ExileCore.dll",
-          "src": "../../../PoEHelper/"
+          "files": "ExileCore2.dll",
+          "src": "../../../../ExileCore2Compiled/"
         }
       ],
       "dest": "api",
