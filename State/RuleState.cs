@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading;
 using System.Windows.Forms;
 using ExileCore2;
 using ExileCore2.PoEMemory.Components;
+using ExileCore2.PoEMemory.MemoryObjects;
 using ExileCore2.Shared.Enums;
+using ExileCore2.Shared.Helpers;
 
 namespace ReAgent.State;
 
@@ -26,6 +29,7 @@ public class RuleState
     private readonly Lazy<List<MonsterInfo>> _corpses;
     private readonly Lazy<List<EntityInfo>> _portals;
     private readonly Lazy<StatDictionary> _mapStats;
+    private readonly GameController _controller;
 
     public RuleInternalState InternalState
     {
@@ -44,6 +48,7 @@ public class RuleState
     {
         _internalState = internalState;
         var controller = plugin.GameController;
+        _controller = controller;
         if (controller != null)
         {
             IsInHideout = plugin.GameController.Area.CurrentArea.IsHideout;
@@ -256,4 +261,7 @@ public class RuleState
 
     [Api]
     public bool IsAnyLargePanelOpen => _internalState.LargePanelVisible;
+
+    [Api]
+    public Vector2 MousePosition => _controller.IngameState.ServerData.WorldMousePosition.WorldToGrid();
 }
