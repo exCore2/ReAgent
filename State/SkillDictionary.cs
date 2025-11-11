@@ -98,7 +98,8 @@ public class SkillDictionary
                     .Where(e => e != null)
                     .Select(e => new MonsterInfo(controller, e))
                     .ToList(),
-                LazyThreadSafetyMode.None));
+                LazyThreadSafetyMode.None),
+            new Lazy<StatDictionary>(() => new StatDictionary(skill.Stats), LazyThreadSafetyMode.None));
     }
 
     [Api]
