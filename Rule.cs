@@ -65,21 +65,8 @@ public class Rule
     public string RuleSource;
     public RuleActionType Type = RuleActionType.Key;
 
-    public Keys? Key
-    {
-        get
-        {
-            return KeyV2 switch { { Key: { } k } => k, _ => null };
-        }
-        set
-        {
-            KeyV2 = value switch { null => null, { } k => new HotkeyNodeValue(k) };
-        }
-    }
-
-    public bool ShouldSerializeKey() => false;
-
     public HotkeyNodeValue KeyV2 = new HotkeyNodeValue(Keys.D0);
+    private HotkeyNodeV2 _keyNode;
     public int SyntaxVersion;
     private Lazy<(Func<RuleState, IEnumerable<ISideEffect>> Func, string Exception)> _compilationResult;
     private string _lastException;
@@ -107,10 +94,12 @@ public class Rule
                 {
                     case RuleActionType.Key:
                         KeyV2 = new HotkeyNodeValue(Keys.D0);
+                        _keyNode = null;
                         break;
                     case RuleActionType.SingleSideEffect:
                     case RuleActionType.MultipleSideEffects:
                         KeyV2 = null;
+                        _keyNode = null;
                         break;
                 }
 
@@ -128,10 +117,11 @@ public class Rule
             var key = KeyV2;
             if (expand)
             {
-                var hotkeyNode = new HotkeyNodeV2(key) { AllowControllerKeys = true };
-                if (hotkeyNode.DrawPickerButton($"Key {key}"))
+                _keyNode ??= new HotkeyNodeV2(key) { AllowControllerKeys = true };
+                if (_keyNode.DrawPickerButton($"Key {key}"))
                 {
-                    KeyV2 = hotkeyNode.Value;
+                    KeyV2 = _keyNode.Value;
+                    _keyNode = null;
                 }
             }
             else
