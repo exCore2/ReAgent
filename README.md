@@ -18,6 +18,11 @@ framework, not a passive overlay.
 PoE2-specific behavior includes the two-flask model and data-driven ailment
 names. Review every profile before enabling: user rules can send input.
 
+Entity projections fail closed when an ExileCore2 `ValidEntitiesByType` bucket is
+not present during startup or an area transition. Roslyn v2 rule contexts are
+also unloaded when a rule is rebuilt or the plugin is disposed, limiting stale
+collectible assembly accumulation during profile editing and hot reload.
+
 ## Status
 
 Build: **PASS**. Classification: **CURRENT_WITH_WARNINGS**; runtime semantics

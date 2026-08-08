@@ -462,6 +462,11 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
     {
         _pendingSideEffects.Clear();
         _actionInfo.Clear();
+        foreach (var profile in Settings.Profiles.Values)
+        {
+            profile?.ReleaseCompilationContexts();
+        }
+
         foreach (var loadedTexture in _loadedTextures)
         {
             try { Graphics.DisposeTexture(loadedTexture); } catch { }

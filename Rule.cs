@@ -82,6 +82,7 @@ public class Rule
     public HotkeyNodeValue KeyV2 = new HotkeyNodeValue(Keys.D0);
     public int SyntaxVersion;
     private Lazy<(Func<RuleState, IEnumerable<ISideEffect>> Func, string Exception)> _compilationResult;
+    private AssemblyLoadContext _assemblyLoadContext;
     private string _lastException;
     private ulong _exceptionCounter;
     private static readonly InteractiveAssemblyLoader loader;
@@ -205,6 +206,7 @@ public class Rule
 
     private void ResetFunction()
     {
+        ReleaseCompilationContext();
         _exceptionCounter = 0;
         _compilationResult = new(SyntaxVersion switch { 1 => RebuildFunctionV1, 2 => RebuildFunctionV2, _ => RebuildFunctionV2 }, LazyThreadSafetyMode.None);
     }
@@ -263,20 +265,20 @@ public class Rule
             {
                 case RuleActionType.Key:
                 {
-                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<bool>>(RuleSource, ScriptOptions, CreateAlc());
+                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<bool>>(RuleSource, ScriptOptions, CreateRuleAlc());
                     return (s => @delegate(s)
                         ? [new PressKeySideEffect(KeyV2 ?? throw new Exception("Key is not assigned"))]
                         : [], null);
                 }
                 case RuleActionType.SingleSideEffect:
                 {
-                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<ISideEffect>>(RuleSource, ScriptOptions, CreateAlc());
+                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<ISideEffect>>(RuleSource, ScriptOptions, CreateRuleAlc());
                     return (s => @delegate(s) switch { { } sideEffect => [sideEffect], _ => Enumerable.Empty<ISideEffect>() },
                         null);
                 }
                 case RuleActionType.MultipleSideEffects:
                 {
-                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<IEnumerable<ISideEffect>>>(RuleSource, ScriptOptions, CreateAlc());
+                    var @delegate = DelegateCompiler.CompileDelegate<ScriptFunc<IEnumerable<ISideEffect>>>(RuleSource, ScriptOptions, CreateRuleAlc());
                     return (s => @delegate(s) switch { { } sideEffects => sideEffects, _ => Enumerable.Empty<ISideEffect>() }, null);
                 }
                 default:
@@ -285,8 +287,23 @@ public class Rule
         }
         catch (Exception ex)
         {
+            ReleaseCompilationContext();
             return (null, $"Expression compilation failed: {ex.Message}");
         }
+    }
+
+    internal void ReleaseCompilationContext()
+    {
+        var context = Interlocked.Exchange(ref _assemblyLoadContext, null);
+        context?.Unload();
+    }
+
+    private AssemblyLoadContext CreateRuleAlc()
+    {
+        ReleaseCompilationContext();
+        var context = CreateAlc();
+        _assemblyLoadContext = context;
+        return context;
     }
 
     private static AssemblyLoadContext CreateAlc()
