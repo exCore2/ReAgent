@@ -145,7 +145,7 @@ public class Rule
         {
             ImGui.TextWrapped("Rule source");
             ImGui.SameLine();
-            var syntaxState = SyntaxVersion switch { 1 => false, 2 => true };
+            var syntaxState = SyntaxVersion switch { 1 => false, 2 => true, _ => true };
             if (ImGui.Checkbox("Use new syntax", ref syntaxState))
             {
                 SyntaxVersion = syntaxState ? 2 : 1;
@@ -206,7 +206,7 @@ public class Rule
     private void ResetFunction()
     {
         _exceptionCounter = 0;
-        _compilationResult = new(SyntaxVersion switch { 1 => RebuildFunctionV1, 2 => RebuildFunctionV2 }, LazyThreadSafetyMode.None);
+        _compilationResult = new(SyntaxVersion switch { 1 => RebuildFunctionV1, 2 => RebuildFunctionV2, _ => RebuildFunctionV2 }, LazyThreadSafetyMode.None);
     }
 
     private (Func<RuleState, IEnumerable<ISideEffect>> Func, string LastException) RebuildFunctionV1()

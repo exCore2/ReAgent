@@ -273,6 +273,9 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
 
     public override void Render()
     {
+        if (!Settings.Enable)
+            return;
+
         if (Settings.Profiles.Count == 0)
         {
             Settings.Profiles.Add(GetNewProfileName("New profile "), Profile.CreateWithDefaultGroup());
@@ -441,6 +444,29 @@ public sealed class ReAgent : BaseSettingsPlugin<ReAgentSettings>
             Graphics.DrawBox(position, position + textSize, Color.Black);
             Graphics.DrawText(text, position, ColorFromName(color));
         }
+    }
+
+    public override void OnPluginDestroyForHotReload()
+    {
+        ClearRuntimeState();
+        base.OnPluginDestroyForHotReload();
+    }
+
+    public override void Dispose()
+    {
+        ClearRuntimeState();
+        base.Dispose();
+    }
+
+    private void ClearRuntimeState()
+    {
+        _pendingSideEffects.Clear();
+        _actionInfo.Clear();
+        foreach (var loadedTexture in _loadedTextures)
+        {
+            try { Graphics.DisposeTexture(loadedTexture); } catch { }
+        }
+        _loadedTextures.Clear();
     }
 
     private static Color ColorFromName(string color)
