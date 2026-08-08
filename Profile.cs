@@ -252,6 +252,14 @@ public class Profile
         _groupImportObject = null;
     }
 
+    internal void ReleaseCompilationContexts()
+    {
+        foreach (var group in Groups)
+        {
+            group.ReleaseCompilationContexts();
+        }
+    }
+
     private void DrawSettingsHorizontal(RuleState state, ReAgentSettings settings)
     {
         if (ImGui.BeginTabBar("Rule groups", ImGuiTabBarFlags.AutoSelectNewTabs | ImGuiTabBarFlags.Reorderable | ImGuiTabBarFlags.FittingPolicyScroll))

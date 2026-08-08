@@ -1,4 +1,6 @@
 ﻿using System;
+#nullable enable
+
 using System.Collections.Generic;
 using System.Numerics;
 using System.Windows.Forms;
@@ -18,8 +20,7 @@ public class RuleInternalState
     public List<(string Text, Vector2 Position, string Color)> TextToDisplay { get; } = new();
     public List<(string Text, Vector2 Position, Vector2 Size, float Fraction, string Color, string BackgroundColor, string TextColor)> ProgressBarsToDisplay { get; } = new();
     public bool AccessForbidden { get; set; }
-    public RuleGroup CurrentGroup { get; private set; }
-    public Dictionary<int, (bool WasActive, DateTime DeactivationTime)> TinctureUsageTracker { get; } = [];
+    public RuleGroup CurrentGroup { get; private set; } = new("");
 
     public bool ChatTitlePanelVisible { get; set; }
 

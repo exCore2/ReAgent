@@ -95,28 +95,39 @@ public class RuleState
             Flasks = new FlasksInfo(controller, InternalState);
             Player = new MonsterInfo(controller, player);
             _nearbyMonsterInfo = new Lazy<NearbyMonsterInfo>(() => new NearbyMonsterInfo(plugin), LazyThreadSafetyMode.None);
-            _miscellaneousObjects = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.MiscellaneousObjects].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _noneEntities = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.None].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _ingameiconObjects = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.IngameIcon].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _miniMonoliths = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.MiniMonolith].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _chests = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Chest].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _terrainEntities = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Terrain].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _allMonsters = new Lazy<List<MonsterInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Monster]
+            _miscellaneousObjects = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.MiscellaneousObjects).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _noneEntities = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.None).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _ingameiconObjects = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.IngameIcon).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _miniMonoliths = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.MiniMonolith).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _chests = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.Chest).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _terrainEntities = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.Terrain).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _allMonsters = new Lazy<List<MonsterInfo>>(() => EntitiesOfType(EntityType.Monster)
                 .Where(e => NearbyMonsterInfo.IsValidMonster(plugin, e, false, false))
                     .Select(x => new MonsterInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _hiddenMonsters = new Lazy<List<MonsterInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Monster]
+            _hiddenMonsters = new Lazy<List<MonsterInfo>>(() => EntitiesOfType(EntityType.Monster)
                 .Where(e => NearbyMonsterInfo.IsValidMonster(plugin, e, false, true))
                     .Select(x => new MonsterInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _corpses = new Lazy<List<MonsterInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Monster]
+            _corpses = new Lazy<List<MonsterInfo>>(() => EntitiesOfType(EntityType.Monster)
                 .Where(e => NearbyMonsterInfo.IsValidMonster(plugin, e, false, false))
                 .Where(x => x.IsDead)
                     .Select(x => new MonsterInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _effects = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Effect].Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _allPlayers = new Lazy<List<MonsterInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.Player]
+            _effects = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.Effect).Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
+            _allPlayers = new Lazy<List<MonsterInfo>>(() => EntitiesOfType(EntityType.Player)
                     .Select(x => new MonsterInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
-            _portals = new Lazy<List<EntityInfo>>(() => controller.EntityListWrapper.ValidEntitiesByType[EntityType.TownPortal]
+            _portals = new Lazy<List<EntityInfo>>(() => EntitiesOfType(EntityType.TownPortal)
                 .Select(x => new EntityInfo(controller, x)).ToList(), LazyThreadSafetyMode.None);
         }
+    }
+
+    private IEnumerable<Entity> EntitiesOfType(EntityType type)
+    {
+        if (_controller?.EntityListWrapper?.ValidEntitiesByType is { } byType &&
+            byType.TryGetValue(type, out var entities) && entities is not null)
+        {
+            return entities;
+        }
+
+        return Enumerable.Empty<Entity>();
     }
 
 

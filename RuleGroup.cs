@@ -218,6 +218,14 @@ public class RuleGroup
         }
     }
 
+    internal void ReleaseCompilationContexts()
+    {
+        foreach (var rule in Rules)
+        {
+            rule.ReleaseCompilationContext();
+        }
+    }
+
     private void RemoveAt(int index)
     {
         Rules.RemoveAt(index);

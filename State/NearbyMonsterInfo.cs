@@ -159,7 +159,14 @@ public class NearbyMonsterInfo
             return;
         }
 
-        foreach (var entity in plugin.GameController.EntityListWrapper.ValidEntitiesByType[EntityType.Monster])
+        if (plugin.GameController.EntityListWrapper?.ValidEntitiesByType is not { } byType ||
+            !byType.TryGetValue(EntityType.Monster, out var entities) || entities is null)
+        {
+            FriendlyMonsters = friendlyMonsters;
+            return;
+        }
+
+        foreach (var entity in entities)
         {
             if (!IsValidMonster(plugin, entity, true, false))
             {

@@ -14,12 +14,9 @@
     "puncture_moving"
   ],
   "Burning": [
-    "demon_righteous_fire_aura",
     "fire_damage_and_ignite",
     "ground_fire_burn",
-    "ignited",
-    "righteous_fire_aura",
-    "searing_bond_in_beam"
+    "ignited"
   ],
   "Chilled": [
     "chilled",
@@ -32,17 +29,18 @@
     "corrupted_blood_rain"
   ],
   "Cursed": [
-    "curse_assassins_mark",
     "curse_chaos_weakness",
     "curse_cold_weakness",
     "curse_elemental_weakness",
     "curse_enfeeble",
     "curse_fire_weakness",
     "curse_lightning_weakness",
-    "curse_newpunishment",
     "curse_temporal_chains",
-    "curse_vulnerability",
-    "curse_warlords_mark"
+    "curse_vulnerability"
+  ],
+  "Electrocuted": [
+    "electrocute",
+    "electrocuted"
   ],
   "Exposed": [
     "reduced_cold_resistance_from_skill",
@@ -65,18 +63,12 @@
     "caustic_cloud",
     "chaos_bond_in_beam",
     "ground_desecration",
-    "poison",
-    "viper_strike_orb"
+    "poison"
   ],
   "Shocked": [
     "ground_lightning_shock",
     "lightning_damage_and_shock",
     "seawitch_lightning_beam",
     "shocked"
-  ],
-  "Unable To Recover": [
-    "atlas_orion_meteor_ground",
-    "maven_rotating_beam_debuff",
-    "maven_cutter_beam_debuff"
   ]
 }

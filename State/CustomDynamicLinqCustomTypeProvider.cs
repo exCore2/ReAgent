@@ -11,9 +11,10 @@ namespace ReAgent.State;
 
 public sealed class CustomDynamicLinqCustomTypeProvider :
     AbstractDynamicLinqCustomTypeProvider,
-    IDynamicLinkCustomTypeProvider,
     IDynamicLinqCustomTypeProvider
 {
+    public CustomDynamicLinqCustomTypeProvider() : base(Array.Empty<Type>()) { }
+
     private HashSet<Type> _cachedCustomTypes;
     private Dictionary<Type, List<MethodInfo>> _cachedExtensionMethods;
 
