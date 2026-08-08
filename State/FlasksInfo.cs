@@ -38,7 +38,7 @@ public class FlasksInfo
         var flaskInventory = controller.IngameState.ServerData.PlayerInventories.LastOrDefault(x => x.TypeId == InventoryNameE.Flask1);
         var flaskItems = Enumerable.Range(0, FlaskCount).Select(i => flaskInventory?.Inventory?[i, 0]).ToList();
         _flasks = flaskItems
-            .Select((f,i) => FlaskInfo.From(controller, flaskItems, f, i, internalState))
+            .Select(f => FlaskInfo.From(controller, f))
             .ToList();
     }
 }

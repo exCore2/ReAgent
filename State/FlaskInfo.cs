@@ -25,10 +25,7 @@ public record FlaskInfo(
 
     public static FlaskInfo From(
         GameController state,
-        List<ServerInventory.InventSlotItem> flaskItems,
-        ServerInventory.InventSlotItem flaskItem,
-        int index,
-        RuleInternalState internalState)
+        ServerInventory.InventSlotItem flaskItem)
     {
         if (flaskItem?.Address is 0 or null || flaskItem.Item?.Address is null or 0)
         {
@@ -75,16 +72,34 @@ public record FlaskInfo(
         "flask_instant_mana_recovery_at_end_of_effect"
     };
 
+    // These are the only host members currently available for distinguishing
+    // life/mana/hybrid flasks in the pinned PoE2 preview. Keep them named and
+    // fail closed so a future layout change cannot turn a stale read into a
+    // false-positive automation trigger.
+    private const int FlaskTypePointerOffset = 0x28;
+    private const int FlaskTypeValueOffset = 0x20;
+    private const int CustomBuffPointerOffset = 0x18;
+    private const int CustomBuffPointerIndex = 0x0;
+
     private static IEnumerable<string> GetFlaskBuffNames(Flask flask)
     {
-        var type = flask.M.Read<int>(flask.Address + 0x28, 0x20);
-        return type switch
+        try
         {
-            1 => LifeFlaskBuffs,
-            2 => ManaFlaskBuffs,
-            3 => LifeFlaskBuffs.Concat(ManaFlaskBuffs),
-            4 when flask.M.ReadStringU(flask.M.Read<long>(flask.Address + 0x28, 0x18, 0x0)) is { } s and not "" => new[] { s },
-            _ => Enumerable.Empty<string>()
-        };
+            var type = flask.M.Read<int>(flask.Address + FlaskTypePointerOffset, FlaskTypeValueOffset);
+            return type switch
+            {
+                1 => LifeFlaskBuffs,
+                2 => ManaFlaskBuffs,
+                3 => LifeFlaskBuffs.Concat(ManaFlaskBuffs),
+                4 when flask.M.ReadStringU(flask.M.Read<long>(flask.Address + FlaskTypePointerOffset, CustomBuffPointerOffset, CustomBuffPointerIndex)) is { } s and not "" => new[] { s },
+                _ => Enumerable.Empty<string>()
+            };
+        }
+        catch
+        {
+            // A stale/unknown memory layout must disable classification, not
+            // break the rule-state snapshot or execute a wrong flask rule.
+            return Enumerable.Empty<string>();
+        }
     }
 }
