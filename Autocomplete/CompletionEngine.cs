@@ -6,8 +6,8 @@ using System.Linq.Dynamic.Core.CustomTypeProviders;
 using System.Numerics;
 using System.Reflection;
 using System.Windows.Forms;
-using ExileCore;
-using ExileCore.Shared.Enums;
+using ExileCore2;
+using ExileCore2.Shared.Enums;
 using ReAgent.State;
 
 namespace ReAgent.Autocomplete;
@@ -382,9 +382,6 @@ public static class CompletionEngine
             {
                 0 => state?.Flasks?.Flask1,
                 1 => state?.Flasks?.Flask2,
-                2 => state?.Flasks?.Flask3,
-                3 => state?.Flasks?.Flask4,
-                4 => state?.Flasks?.Flask5,
                 _ => null,
             };
             return string.IsNullOrEmpty(flask?.Name) ? "" : flask.Name;
